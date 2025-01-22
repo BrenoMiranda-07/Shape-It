@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Quicksand", sans-serif;
+    background: #202731;
+    color: #FFF;
+}
+
+section {
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section h2 {
+    color: #0088a9;
+}
+
+.title {
+    font-size: 3rem;
+    margin: 2rem 0rem;
+}
+
+.faq {
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #0088a9;
+    cursor: pointer;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question h3 {
+    font-size: 1.8rem;
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+.answer p {
+    padding-top: 1rem;
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+
+.faq.active .answer {
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+
+.faq.active svg {
+    transform: rotate(180deg);
+}
+
+svg {
+    transition: transform .5s ease-in;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #202731;
+    border-bottom: 3px #0088a9 solid;
+}
+
+
+.logo {
+    cursor: pointer;
+    width: 350px;
+}
+
+
+.nav_links {
+    list-style: none;
+}
+
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+
+.navbar {
+    position: relative;
+    text-decoration: none;
+    color: #edf0f1;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 0 10px;
+}
+
+
+.navbar:after {
+    content: '';
+    position: absolute;
+    background-color: #0088a9;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+
+.navbar:hover:after {
+    width: 100%;
+}
+
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    color: #001d3dff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: #edf0f1;
+}
+
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}

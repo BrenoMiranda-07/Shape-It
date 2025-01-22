@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="contact.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="metamorphosis.png" alt="logo">
+        <nav>
+            <ul class="nav_links">
+                <li><a href="Index.html" class="navbar">Home</a></li>
+                <li><a href="aboutus.html" class="navbar">About</a></li>
+                <li><a href="learn.html" class="navbar">Learn More</a></li>
+                <li><a href="contact.html" class="navbar">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="subscribe.html"><button>Subscribe</button></a>
+    </header>
+    <div class="container">
+        <h1>Connect With Us</h1>
+        <p>We would love to respond to your queries and help you succeed. <br>Feel free to get in touch with us!</p>
+        <div class="contact-box">
+            <div class="contact-left">
+                <h3>Sent your request</h3>
+                <form onsubmit="sendEmail(); reset(); return false;">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input id="name" type="text" placeholder="Metamorphosis">
+                        </div>
+                        <div class="input-group">
+                            <label>Phone</label>
+                            <input id="phone" type="text" placeholder="+64 022-509-8841">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>email</label>
+                            <input id="email" type="email" placeholder="metamorphosis@gmail.com">
+                        </div>
+                        <div class="input-group">
+                            <label>Subject</label>
+                            <input id="subject" type="text" placeholder="Service Demo">
+                        </div>
+                    </div>
+
+
+                    <label>Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message"></textarea>
+                    <button type="submit">SEND</button>
+                </form>
+            </div>
+            <div class="contact-right">
+                <h3>Reach Us</h3>
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td>metamorphosis@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>+64 022-509-8841</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>Glen Eden <br>Auckland</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "metamorphosismetropolis@gmail.com",
+                Password: "Breno2338433",
+                To: 'metamorphosismetropolis@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "New Contact Form Enquiry",
+                Body: "Name: " + document.getElementbyId("name").value
+                    + "<br> Email: " + document.getElementById("email").value
+                    + "<br> Phone no.: " + document.getElementById("phone").value
+                    + "<br> Subject: " + document.getElementById("subject").value
+                    + "<br> Message: " + document.getElementById("message").value
+            }).then(
+                message => alert("Message Sent Succesfully")
+            );
+        }
+    </script>
+</body>
+
+</html>

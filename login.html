@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link href="signup.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand&family=Roboto&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="login-box">
+        <h1>Login</h1>
+        <form>
+            <label>Email</label>
+            <input type="email" placeholder="example@email.com">
+            <label>Password</label>
+            <input type="password" placeholder="Password">
+            <input type="submit" value="Login" id="login">
+        </form>
+    </div>
+    <p class="para-2">Don't have an account? <a href="signup.html">Sign Up Here</a></p>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyB9eaznAXFbzZzat6tkxX2J-xFcQcMAALQ",
+        authDomain: "metamorphosis-2f4ac.firebaseapp.com",
+        databaseURL: "https://metamorphosis-2f4ac-default-rtdb.firebaseio.com",
+        projectId: "metamorphosis-2f4ac",
+        storageBucket: "metamorphosis-2f4ac.appspot.com",
+        messagingSenderId: "549479088765",
+        appId: "1:549479088765:web:d407d429fddfe562d7a714",
+        measurementId: "G-1KYK660MQJ"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    const analytics = getAnalytics(app);
+
+    signUp.addEventListner('click', (e) => {
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var username = document.getElementById('username').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+
+                set(ref(database, 'users/' + user.uid), {
+                    username: username,
+                    email: email
+                })
+                alert('user created!');
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+
+                alert('errorMessage');
+                // ..
+            });
+    });
+
+    login.addEventListner('click', (e) => {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                const dt = new Date();
+                update(ref(database, 'users/' + user.uid), {
+                    last_Login: dt,
+                })
+
+                alert('User Loged in!');
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert('errorMessage');
+
+            });
+    });
+
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            const uid = user.uid;
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+
+    logout.addEventListner('click', (e) => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('User loged out')
+        }).catch((error) => {
+            // An error happened.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert('errorMessage');
+        });
+    });
+</script>
+
+</html>

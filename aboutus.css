@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+
+#about-section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 12%;
+}
+
+
+.about-left img {
+    width: 420px;
+    height: auto;
+    transform: translateY(50px);
+}
+
+
+.about-right {
+    width: 54%;
+}
+
+
+.about-right ul li {
+    display: flex;
+    align-items: center;
+}
+
+
+.about-right h1 {
+    color: #0088a9;
+    font-size: 37px;
+    margin-bottom: 5px;
+}
+
+
+.about-right p {
+    color: #FFF;
+    line-height: 26px;
+    font-size: 15px;
+}
+
+
+.about-right .address {
+    margin: 25px 0;
+}
+
+
+.about-right .address ul li {
+    margin-bottom: 5px;
+}
+
+
+.address .address-logo {
+    margin-right: 15px;
+    color: #0088a9;
+}
+
+
+.address .saprater {
+    margin: 0 35px;
+}
+
+
+.about-right .expertise ul {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.expertise h3 {
+    margin-bottom: 10px;
+    color: #FFF;
+}
+
+
+.expertise .expertise-logo {
+    font-size: 19px;
+    margin-right: 10px;
+    color: #0088a9;
+}
+
+
+#about-section {
+    background-color: #202731;
+    border: #0088a9 3px solid;
+}
+
+h4 {
+    color: #FFF;
+}
+
+
+.saprater {
+    color: #FFF;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #202731;
+}
+
+
+.logo {
+    cursor: pointer;
+    width: 150px;
+    height: 100px;
+}
+
+
+.nav_links {
+    list-style: none;
+}
+
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+
+.navbar {
+    position: relative;
+    text-decoration: none;
+    color: #edf0f1;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 0 10px;
+}
+
+
+.navbar:after {
+    content: '';
+    position: absolute;
+    background-color: #0088a9;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+
+.navbar:hover:after {
+    width: 100%;
+}
+
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    color: #001d3dff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: #edf0f1;
+}
+
+
+button:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+
+body {
+    background-color: #202731;
+}
+
+.logo {
+    width: 350px;
+}
